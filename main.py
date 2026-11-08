@@ -12,22 +12,26 @@ class JimboStore(QMainWindow):
 
         self.cards = QStackedLayout()
 
-        eleccionCiegas = QWidget()
+        self.eleccionCiegas = QWidget()
         layout_principal = QGridLayout()
 
         # Dinero, Rondas y Ante
 
-        self.dinero = QLabel("100$")
-        self.ronda = QLabel("Round: 0")
-        self.ante = QLabel("Ante: 0/8")
+        dineroTXT = "100$"
+        rondaTXT = "Round: 0"
+        anteTXT = "Ante: 0/8"
 
-        datos = QVBoxLayout()
+        dinero = QLabel(dineroTXT)
+        ronda = QLabel(rondaTXT)
+        ante = QLabel(anteTXT)
 
-        datos.addWidget(self.dinero)
-        datos.addWidget(self.ronda)
-        datos.addWidget(self.ante)
+        self.datos = QVBoxLayout()
 
-        layout_principal.addLayout(datos, 0, 0)
+        self.datos.addWidget(dinero)
+        self.datos.addWidget(ronda)
+        self.datos.addWidget(ante)
+
+        layout_principal.addLayout(self.datos, 0, 0)
 
         # Ciegas y skips
 
@@ -54,15 +58,36 @@ class JimboStore(QMainWindow):
 
         layout_principal.addWidget(btn_toCiega3, 0, 3)
 
-        eleccionCiegas.setLayout(layout_principal)
+        self.eleccionCiegas.setLayout(layout_principal)
 
         #---------------------------------------
 
+        self.datosC = QVBoxLayout()
 
+        dineroC = QLabel(dineroTXT)
+        rondaC = QLabel(rondaTXT)
+        anteC = QLabel(anteTXT)
+
+        self.datosC.addWidget(dineroC)
+        self.datosC.addWidget(rondaC)
+        self.datosC.addWidget(anteC)
 
         self.ciega = QWidget()
+        layout_ciegas = QGridLayout()
+        layout_ciegas.addLayout(self.datosC, 0, 0)
+        btn_pasar = QPushButton("Pasar")
+        layout_ciegas.addWidget(btn_pasar, 0, 1)
 
-        self.cards.addWidget(eleccionCiegas)
+
+        self.ciega.setLayout(layout_ciegas)
+
+
+
+
+
+
+
+        self.cards.addWidget(self.eleccionCiegas)
         self.cards.addWidget(self.ciega)
 
         contenedor = QWidget()
@@ -81,6 +106,9 @@ class JimboStore(QMainWindow):
 
     def start(self):
         self.cards.setCurrentIndex(0)
+
+    def to_tienda(self):
+        self.cards.setCurrentWidget(self.tienda)
 
 
 
