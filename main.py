@@ -21,36 +21,38 @@ class JimboStore(QMainWindow):
         self.ronda = QLabel("Round: 0")
         self.ante = QLabel("Ante: 0/8")
 
-        layout_principal.addWidget(self.dinero, 0, 0)
-        layout_principal.addWidget(self.ronda, 1, 0)
-        layout_principal.addWidget(self.ante, 2, 0)
+        datos = QVBoxLayout()
+
+        datos.addWidget(self.dinero)
+        datos.addWidget(self.ronda)
+        datos.addWidget(self.ante)
+
+        layout_principal.addLayout(datos, 0, 0)
 
         # Ciegas y skips
 
-        ciega1 = QVBoxLayout()
         btn_toCiega1 = QPushButton("Ciega 1")
         btn_toCiega1.clicked.connect(self.to_ciega)
         btn_ciega1 = QPushButton("Skip 1")
         btn_ciega1.clicked.connect(self.skip1)
-        ciega1.addWidget(btn_toCiega1)
-        ciega1.addWidget(btn_ciega1)
 
-        ciega2 = QVBoxLayout()
+        layout_principal.addWidget(btn_toCiega1, 0, 1)
+        layout_principal.addWidget(btn_ciega1, 1, 1)
+
+
         btn_toCiega2 = QPushButton("Ciega 2")
         btn_toCiega2.clicked.connect(self.to_ciega)
         btn_ciega2 = QPushButton("Skip 2")
         btn_ciega2.clicked.connect(self.skip2)
-        ciega2.addWidget(btn_toCiega2)
-        ciega2.addWidget(btn_ciega2)
 
-        ciega3 = QVBoxLayout()
+        layout_principal.addWidget(btn_toCiega2, 0, 2)
+        layout_principal.addWidget(btn_ciega2, 1, 2)
+
+
         btn_toCiega3 = QPushButton("Boss")
         btn_toCiega3.clicked.connect(self.to_ciega)
-        ciega3.addWidget(btn_toCiega3)
 
-        layout_principal.addLayout(ciega1, 0, 1,3,1)
-        layout_principal.addLayout(ciega2, 0, 2,3,1)
-        layout_principal.addLayout(ciega3, 0, 3,2,1)
+        layout_principal.addWidget(btn_toCiega3, 0, 3)
 
         eleccionCiegas.setLayout(layout_principal)
 
