@@ -48,8 +48,8 @@ class JimboStore(QMainWindow):
 
         ### Layout de card
 
-        def to_ciega(self):
-            self.card.currentWidget().show()
+    def to_ciega(self):
+        self.card.currentWidget().show()
 
 
 
