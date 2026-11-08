@@ -76,19 +76,40 @@ class JimboStore(QMainWindow):
         layout_ciegas = QGridLayout()
         layout_ciegas.addLayout(self.datosC, 0, 0)
         btn_pasar = QPushButton("Pasar")
+        btn_pasar.clicked.connect(self.to_tienda)
         layout_ciegas.addWidget(btn_pasar, 0, 1)
-
 
         self.ciega.setLayout(layout_ciegas)
 
+        #-------------------------------
+
+
+        self.datosT = QVBoxLayout()
+
+        dineroT = QLabel(dineroTXT)
+        rondaT = QLabel(rondaTXT)
+        anteT = QLabel(anteTXT)
+
+        self.datosT.addWidget(dineroT)
+        self.datosT.addWidget(rondaT)
+        self.datosT.addWidget(anteT)
+
+        self.tienda = QWidget()
+        layout_tienda = QGridLayout()
+        layout_tienda.addLayout(self.datosT, 0, 0)
 
 
 
 
+
+
+
+        self.tienda.setLayout(layout_tienda)
 
 
         self.cards.addWidget(self.eleccionCiegas)
         self.cards.addWidget(self.ciega)
+        self.cards.addWidget(self.tienda)
 
         contenedor = QWidget()
         contenedor.setLayout(self.cards)
