@@ -17,13 +17,13 @@ class JimboStore(QMainWindow):
 
         # Dinero, Rondas y Ante
 
-        dinero = QLabel("100$")
-        ronda = QLabel("Round: 0")
-        ante = QLabel("Ante: 0/8")
+        self.dinero = QLabel("100$")
+        self.ronda = QLabel("Round: 0")
+        self.ante = QLabel("Ante: 0/8")
 
-        layout_principal.addWidget(dinero, 0, 0)
-        layout_principal.addWidget(ronda, 1, 0)
-        layout_principal.addWidget(ante, 2, 0)
+        layout_principal.addWidget(self.dinero, 0, 0)
+        layout_principal.addWidget(self.ronda, 1, 0)
+        layout_principal.addWidget(self.ante, 2, 0)
 
         # Ciegas y skips
 
@@ -53,6 +53,10 @@ class JimboStore(QMainWindow):
         layout_principal.addLayout(ciega3, 0, 3,2,1)
 
         eleccionCiegas.setLayout(layout_principal)
+
+        #---------------------------------------
+
+
 
         self.ciega = QWidget()
 
