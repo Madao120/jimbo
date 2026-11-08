@@ -41,9 +41,6 @@ class JimboStore(QMainWindow):
         layout_principal.addLayout(ciega3, 0, 3, 1, 1)
 
 
-
-
-
         contenedor = QWidget()
         contenedor.setLayout(layout_principal)
         self.setCentralWidget(contenedor)
